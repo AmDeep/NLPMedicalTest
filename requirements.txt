@@ -1,6 +1,7 @@
 requests
 beautifulsoup4
 spacy
+en-core-web-sm
 language_tool_python
 PyDictionary
 streamlit~=1.31.1
