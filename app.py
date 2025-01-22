@@ -7,8 +7,16 @@ import language_tool_python
 import streamlit as st
 from PyDictionary import PyDictionary
 
-# Load the English spaCy model
-nlp = spacy.load("en_core_web_sm")
+
+import spacy
+from spacy.cli import download
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    download("en_core_web_sm")  # Automatically download if not found
+    nlp = spacy.load("en_core_web_sm")
+
 
 # Initialize LanguageTool for grammar corrections
 tool = language_tool_python.LanguageTool('en-US')
